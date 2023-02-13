@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="7; url='https://pixarclones.github.io/ScreenSaver/index2.html'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600&display=swap');
+  </style>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.bg {
+  /* The image used */
+  background-image: url("moon.png");
+
+  /* Full height */
+  height: 100%; 
+  width: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Container holding the image and the text */
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+body {
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 40px;
+  left: 16px;
+}
+.textman {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50px;
+}
+</style>
+<script type="text/javascript">
+    function startTime()
+    {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    // add a zero in front of numbers<10
+    m=checkTime(m);
+    s=checkTime(s);
+    document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+    t=setTimeout('startTime()',500);
+    }
+    function checkTime(i)
+    {
+    if (i<10)
+    {
+    i="0" + i;
+    }
+    return i;
+    }
+    </script>
+</head>
+<body onload="startTime()">
+<div class="bg"></div>
+<div class="container">
+    <div class="bottom-left"><div class="textman" id="txt"></div></div>
+    <div class="bottom-right"><a class="weatherwidget-io" href="https://forecast7.com/en/23d6385d51/ramgarh/" data-mode="Current" data-theme="dark" data-basecolor="rgba(0, 0, 0, 0.01)" >Ramgarh, Jharkhand, India</a>
+        <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script></div>
+</div>
+</body>
+</html>
