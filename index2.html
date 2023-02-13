@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Screensaver </title>
     <meta http-equiv="refresh" content="7; url='https://pixarclones.github.io/ScreenSaver/index.html'" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -48,7 +47,7 @@ body {
 }
 .bottom-right {
   position: absolute;
-  bottom: 40px;
+  bottom: 8px;
   right: 16px;
 }
 /* Bottom left text */
@@ -88,11 +87,45 @@ body {
 <body onload="startTime()">
 <div class="bg"></div>
 <div class="container">
-    <div class="bottom-left"><div class="textman" id="txt"></div></div>
-    <div class="bottom-right"><a class="weatherwidget-io" href="https://forecast7.com/en/23d6385d51/ramgarh/" data-label_1="Ramgarh" data-label_2="Weather in" data-mode="Current" data-theme="clear" data-basecolor="rgba(255, 255, 255, 0)" data-shadow="#ffffff" data-accent="#ffffff" >Ramgarh Weather in</a>
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script></div>
+    <div class="bottom-left"><script>
+        (function(d, s, id) {
+            if (d.getElementById(id)) {
+                if (window.__TOMORROW__) {
+                    window.__TOMORROW__.renderWidget();
+                }
+                return;
+            }
+            const fjs = d.getElementsByTagName(s)[0];
+            const js = d.createElement(s);
+            js.id = id;
+            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+            fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'tomorrow-sdk');
+        </script>
+
+        <div class="tomorrow"
+           data-location-id=""
+           data-language="EN"
+           data-unit-system="METRIC"
+           data-skin="dark"
+           data-widget-type="summary"
+           style="padding-bottom:22px;position:relative;"
+        >
+          <a
+            href="https://www.tomorrow.io/weather-api/"
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+            style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;"
+          >
+            <img
+              alt="Powered by the Tomorrow.io Weather API"
+              src="https://weather-website-client.tomorrow.io/img/powered-by.svg"
+              width="250"
+              height="18"
+            />
+          </a>
+        </div></div>
 </div>
 </body>
 </html>
